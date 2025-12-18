@@ -26,17 +26,17 @@ public class StageData : ScriptableObject
         }
 
         [Header("ステージ情報")]
-        public string phaseTitle;
-        public string stageNumber;
-        public Branch branch;
+        public string phaseTitle; // フェーズのタイトル
+        public string stageNumber; // ステージナンバリング
+        public Branch branch; // 分岐
 
         [Header("ボスの立ち絵")]
-        public Sprite secret;
-        public Sprite normal;
-        public Sprite clear;
+        public Sprite secret; // 未挑戦
+        public Sprite normal; // 未クリア
+        public Sprite clear; // クリア済み
 
         [Header("シーン情報、0に耐久1に討伐をいれること")]
-        public GameObject stagePrefab;
-        public List<GameObject> nextPrefabs = new List<GameObject>();
+        public GameObject stagePrefab; // ステージ
+        public List<GameObject> nextPrefabs = new List<GameObject>(); // 次のステージ
     }
 }

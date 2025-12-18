@@ -5,6 +5,9 @@ public class ResetData : MonoBehaviour
 {
     [SerializeField] List<StageData> stageData = new List<StageData>();
 
+    /// <summary>
+    /// ボタン用メソッド、現在の選択されているステージを取得し、データを消して再生成する
+    /// </summary>
     public void OnReset()
     {
         string setStage = PlayerPrefs.GetString("Set");

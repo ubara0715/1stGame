@@ -48,15 +48,15 @@ public class SelectManager : Animations
             for (int m = 0; m < stages[n].phaseData.Count; m++)
             {
                 string stageNumber = stages[n].phaseData[m].stageNumber;
-                Button changeState = GameObject.Find("Stage" + stageNumber).GetComponent<Button>();
+                Button changeState = GameObject.Find("Stage" + stageNumber).GetComponent<Button>(); // ボタンを検索
 
                 if (PrefsData.GetProgress(stageNumber) == 0)
                 {
-                    changeState.interactable = false;
+                    changeState.interactable = false; // 押せない状態
                 }
                 else
                 {
-                    changeState.interactable = true;
+                    changeState.interactable = true; // 押せる状態
                 }
             }
         }
@@ -132,6 +132,9 @@ public class SelectManager : Animations
         Set_Change();
         StartCoroutine(Change);
     }
+    /// <summary>
+    /// 非同期読み込み用メソッド
+    /// </summary>
     IEnumerator ChangeScene()
     {
         // コンポーネント取得
@@ -155,12 +158,14 @@ public class SelectManager : Animations
         yield break;
     }
 
+    // セット
     IEnumerator Change = null;
     void Set_Change()
     {
         Change = ChangeScene();
     }
 
+    // はじまりのアニメーションを追えたらビデオ再生用キャンバスは非表示
     void StartOff()
     {
         videoPanel.SetActive(false);

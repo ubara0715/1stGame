@@ -152,6 +152,9 @@ public class TitleManager : Animations
         yield break;
     }
 
+    /// <summary>
+    /// ゲーム開始時
+    /// </summary>
     IEnumerator FedeStart()
     {
         blackImage.SetActive(true);

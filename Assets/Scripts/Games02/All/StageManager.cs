@@ -144,15 +144,15 @@ public class StageManager : MonoBehaviour,IAntenna
             // ターンによってUIの表示非表示を切り替える
             switch (turn)
             {
-                case Turn.Talk:
+                case Turn.Talk: // トークUIのみ
                     talkCanvas.SetActive(true);
                     resultCanvas.SetActive(false);
                     break;
-                case Turn.Game:
+                case Turn.Game: // どっちもなし
                     talkCanvas.SetActive(false);
                     resultCanvas.SetActive(false);
                     break;
-                case Turn.Result:
+                case Turn.Result: // リザルトUIのみ
                     talkCanvas.SetActive(false);
                     resultCanvas.SetActive(true);
                     break;
@@ -205,6 +205,11 @@ public class StageManager : MonoBehaviour,IAntenna
         turn = Turn.Game;
     }
 
+    /// <summary>
+    /// シーン遷移用アニメーション
+    /// </summary>
+    /// <param name="next">次のシーンの名前</param>
+    /// <param name="video">遷移用アニメーション</param>
     IEnumerator ToNext(string next,VideoClip video)
     {
         isVideo = true;
@@ -228,7 +233,9 @@ public class StageManager : MonoBehaviour,IAntenna
 
         yield break;
     }
-
+    /// <summary>
+    /// はじまりのアニメーション、再生した後ビデオフラグをオフにして再生用キャンバスもオフにする
+    /// </summary>
     IEnumerator From()
     {
         isVideo = true;

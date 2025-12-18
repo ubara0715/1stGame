@@ -49,6 +49,7 @@ public class PlayerBase : StatusBase
         
     }
 
+    // ダメージ計算、表示
     void OnCollisionEnter2D(Collision2D collision)
     {
         GetDamege();
@@ -117,6 +118,9 @@ public class PlayerBase : StatusBase
         }
     }
 
+    /// <summary>
+    /// ダメージエフェクト(カラー変更)のコルーチン、1フレームだけだと短すぎる
+    /// </summary>
     IEnumerator DamageEffect()
     {
         spriteRenderer.color = damageColor;

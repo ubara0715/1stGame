@@ -33,6 +33,7 @@ public class Pattern01_0 : MonoBehaviour
 
     void Update()
     {
+        // ビデオ再生中は停止
         if(manager.isVideo != true)
         {
             if (manager.turn == StageManager.Turn.Game) // ゲームターンのみ

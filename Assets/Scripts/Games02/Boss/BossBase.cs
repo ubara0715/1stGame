@@ -31,6 +31,7 @@ public class BossBase : StatusBase
         oneSize = gaugeTransform.sizeDelta.x / hp;
         onePosition = gaugeTransform.position.x / hp;
 
+        // ダメージ受けた時のカラーと元のカラー取得
         originalColor = sR01.color;
         damageColor = new Color(0.6f, 1.0f, 0.3f);
 
@@ -42,8 +43,10 @@ public class BossBase : StatusBase
 
     void Update()
     {
+        // ビデオ再生中は停止
         if(manager.isVideo != true)
         {
+            // リザルトのときに全てが止まったように見せるため、アニメーションを止める
             if (manager.turn == StageManager.Turn.Result) // リザルトターンの時
             {
                 animator01.enabled = false;
@@ -62,6 +65,7 @@ public class BossBase : StatusBase
         }
     }
 
+    // ダメージ計算、表示とゲージ減らし
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (manager.setData.branch != StageData.PhaseData.Branch.Endure)
@@ -73,12 +77,18 @@ public class BossBase : StatusBase
         }
     }
 
+    /// <summary>
+    /// ボスのHPゲージ管理用、サイズと位置をずらしている
+    /// </summary>
     void UpdateUI()
     {
         gaugeTransform.sizeDelta = new Vector2((gaugeTransform.sizeDelta.x - oneSize), gaugeTransform.sizeDelta.y);
         gaugeTransform.position = new Vector2((gaugeTransform.position.x - onePosition), gaugeTransform.position.y);
     }
 
+    /// <summary>
+    /// ダメージエフェクト(カラー変更)のコルーチン、1フレームだけだと短すぎる
+    /// </summary>
     IEnumerator DamageEffect()
     {
         sR01.color = damageColor;
