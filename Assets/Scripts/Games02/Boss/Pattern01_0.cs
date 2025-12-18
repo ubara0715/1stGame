@@ -38,9 +38,9 @@ public class Pattern01_0 : MonoBehaviour
         {
             if (manager.turn == StageManager.Turn.Game) // ゲームターンのみ
             {
-                TestPattern01(0.8f);
-                TestPattern02(0.4f);
-                TestPattern03(0.3f);
+                Pattern01(0.8f);
+                Pattern02(0.4f);
+                Pattern03(0.3f);
             }
         }
     }
@@ -49,7 +49,7 @@ public class Pattern01_0 : MonoBehaviour
     /// ホーミング弾
     /// </summary>
     /// <param name="ct">クールタイム</param>
-    void TestPattern01(float ct = 0.0f)
+    void Pattern01(float ct = 0.0f)
     {
         if (interval01 > 0)
         {
@@ -71,7 +71,7 @@ public class Pattern01_0 : MonoBehaviour
     /// 全方位弾
     /// </summary>
     /// <param name="ct">クールタイム</param>
-    void TestPattern02(float ct = 0.0f)
+    void Pattern02(float ct = 0.0f)
     {
         if (interval02 > 0)
         {
@@ -98,7 +98,7 @@ public class Pattern01_0 : MonoBehaviour
     /// 全方位弾
     /// </summary>
     /// <param name="ct">クールタイム</param>
-    void TestPattern03(float ct = 0.0f)
+    void Pattern03(float ct = 0.0f)
     {
         if (interval03 > 0)
         {
