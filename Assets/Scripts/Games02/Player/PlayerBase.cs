@@ -30,6 +30,7 @@ public class PlayerBase : StatusBase
 
     void Update()
     {
+        // ビデオ再生中は停止
         if(manager.isVideo != true)
         {
             if (manager.turn != StageManager.Turn.Result) // リザルトターン以外では動ける
